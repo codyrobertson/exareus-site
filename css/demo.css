@@ -185,8 +185,7 @@ a:focus {
 }
 
 .content-content-wrap {
-    position: fixed;
-    display: flex;
+    position: fixed !important;
     display: flex;
     flex-direction: column;
     justify-content: center;
