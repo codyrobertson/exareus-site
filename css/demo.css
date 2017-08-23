@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'MarkPro';
     src: url('..fonts/MarkPro-Heavy.eot');
-    src: local('MarkPro-Heavy'), url('..fonts/MarkPro-Heavy.eot?#iefix') format('embedded-opentype'), url('..fonts/MarkPro-Heavy.woff2') format('woff2'), url('..fonts/MarkPro-Heavy.woff') format('woff'), url('..fonts/MarkPro-Heavy.ttf') format('truetype'), url('..fonts/MarkPro-Heavy.svg#MarkPro-Heavy') format('svg');
+    src: local('MarkPro-Heavy'), url('/fonts/MarkPro-Heavy.eot?#iefix') format('embedded-opentype'), url('..fonts/MarkPro-Heavy.woff2') format('woff2'), url('..fonts/MarkPro-Heavy.woff') format('woff'), url('..fonts/MarkPro-Heavy.ttf') format('truetype'), url('..fonts/MarkPro-Heavy.svg#MarkPro-Heavy') format('svg');
     font-weight: 900;
     font-style: normal;
 }
@@ -9,7 +9,7 @@
 @font-face {
     font-family: 'Graphik';
     src: url('..fonts/Graphik-Regular.eot');
-    src: local('Graphik-Regular'), url('..fonts/Graphik-Regular.eot?#iefix') format('embedded-opentype'), url('..fonts/Graphik-Regular.woff2') format('woff2'), url('..fonts/Graphik-Regular.woff') format('woff'), url('..fonts/Graphik-Regular.ttf') format('truetype'), url('..fonts/Graphik-Regular.svg#Graphik-Regular') format('svg');
+    src: local('Graphik-Regular'), url('/fonts/Graphik-Regular.eot?#iefix') format('embedded-opentype'), url('..fonts/Graphik-Regular.woff2') format('woff2'), url('..fonts/Graphik-Regular.woff') format('woff'), url('..fonts/Graphik-Regular.ttf') format('truetype'), url('..fonts/Graphik-Regular.svg#Graphik-Regular') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -17,7 +17,7 @@
 @font-face {
     font-family: 'MarkPro';
     src: url('..fonts/MarkPro-Medium.eot');
-    src: local('MarkPro-Medium'), url('..fonts/MarkPro-Medium.eot?#iefix') format('embedded-opentype'), url('..fonts/MarkPro-Medium.woff2') format('woff2'), url('..fonts/MarkPro-Medium.woff') format('woff'), url('..fonts/MarkPro-Medium.ttf') format('truetype'), url('..fonts/MarkPro-Medium.svg#MarkPro-Medium') format('svg');
+    src: local('MarkPro-Medium'), url('/fonts/MarkPro-Medium.eot?#iefix') format('embedded-opentype'), url('..fonts/MarkPro-Medium.woff2') format('woff2'), url('..fonts/MarkPro-Medium.woff') format('woff'), url('..fonts/MarkPro-Medium.ttf') format('truetype'), url('..fonts/MarkPro-Medium.svg#MarkPro-Medium') format('svg');
     font-weight: 500;
     font-style: normal;
 }
@@ -25,7 +25,7 @@
 @font-face {
     font-family: 'Graphik';
     src: url('..fonts/Graphik-Medium.eot');
-    src: local('Graphik Medium'), local('Graphik-Medium'), url('..fonts/Graphik-Medium.eot?#iefix') format('embedded-opentype'), url('..fonts/Graphik-Medium.woff2') format('woff2'), url('..fonts/Graphik-Medium.woff') format('woff'), url('..fonts/Graphik-Medium.ttf') format('truetype'), url('..fonts/Graphik-Medium.svg#Graphik-Medium') format('svg');
+    src: local('Graphik Medium'), local('Graphik-Medium'), url('/fonts/Graphik-Medium.eot?#iefix') format('embedded-opentype'), url('..fonts/Graphik-Medium.woff2') format('woff2'), url('..fonts/Graphik-Medium.woff') format('woff'), url('..fonts/Graphik-Medium.ttf') format('truetype'), url('..fonts/Graphik-Medium.svg#Graphik-Medium') format('svg');
     font-weight: 500;
     font-style: normal;
 }
@@ -103,11 +103,20 @@ body {
     border-radius: 50%;
     border: 10px solid var(--background-color-2);
     border-left-color: var(--text-color);
+    -webkit-animation: loaderAnim 0.8s linear infinite forwards;
     animation: loaderAnim 0.8s linear infinite forwards;
+}
+
+@-webkit-keyframes loaderAnim {
+    to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
 }
 
 @keyframes loaderAnim {
     to {
+        -webkit-transform: rotate(360deg);
         transform: rotate(360deg);
     }
 }
@@ -171,8 +180,14 @@ a:focus {
     bottom: 0;
     width: 100%;
     overflow: scroll;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     pointer-events: none;
 }
@@ -181,26 +196,46 @@ a:focus {
     position: relative;
     height: 100%;
     fill: var(--background-color-2);
+    -webkit-box-flex: 0;
+    -ms-flex: none;
     flex: none;
 }
 
 .content-content-wrap {
     position: fixed !important;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     min-height: 600px;
     pointer-events: none;
 }
 
 .content-wrap {
     position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     width: 100%;
     height: 100vh;
@@ -234,7 +269,10 @@ a:focus {
 
 .content--layout {
     pointer-events: auto;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -ms-flex-line-pack: center;
     align-content: center;
     grid-template-columns: 150px 150px 150px 150px;
     grid-template-rows: 150px 75px 75px;
@@ -243,7 +281,10 @@ a:focus {
 
 .content--related {
     text-align: center;
+    -ms-flex-line-pack: center;
     align-content: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     padding: 0 2em;
     min-height: 600px;
@@ -280,6 +321,7 @@ a:focus {
     grid-area: author;
     margin: 0;
     -webkit-writing-mode: vertical-lr;
+    -ms-writing-mode: tb-lr;
     writing-mode: vertical-lr;
     padding: 1em;
     text-align: right;
@@ -299,12 +341,16 @@ a:focus {
 .content__title,
 .content__author,
 .content__desc {
+    -webkit-transition: -webkit-transform 0.3s ease-out;
+    transition: -webkit-transform 0.3s ease-out;
     transition: transform 0.3s ease-out;
+    transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
 }
 
 .content__link {
     pointer-events: auto;
     grid-area: link;
+    -ms-flex-item-align: end;
     align-self: end;
     justify-self: start;
     z-index: 10;
@@ -329,6 +375,7 @@ a:focus {
 
 .content__related-item {
     padding: 1em;
+    -webkit-transition: color 0.3s;
     transition: color 0.3s;
 }
 
@@ -339,6 +386,7 @@ a:focus {
 .content__related-img {
     max-width: 100%;
     opacity: 0.8;
+    -webkit-transition: opacity 0.3s;
     transition: opacity 0.3s;
 }
 
@@ -384,6 +432,7 @@ a:focus {
 
 .content--layout-2 .content__author {
     justify-self: end;
+    -ms-flex-item-align: start;
     align-self: start;
 }
 
@@ -401,6 +450,7 @@ a:focus {
 }
 
 .content--layout-3 .content__desc {
+    -ms-flex-item-align: end;
     align-self: end;
 }
 
@@ -418,6 +468,7 @@ a:focus {
 
 .content--layout-4 .content__author {
     justify-self: start;
+    -ms-flex-item-align: start;
     align-self: start;
 }
 
@@ -431,8 +482,10 @@ a:focus {
 .deco--title {
     grid-area: decotitle;
     -webkit-writing-mode: vertical-lr;
+    -ms-writing-mode: tb-lr;
     writing-mode: vertical-lr;
     text-align: right;
+    -ms-flex-item-align: end;
     align-self: end;
     justify-self: end;
 }
@@ -458,7 +511,12 @@ a:focus {
         position: absolute;
     }
     .codrops-header {
+        -webkit-box-align: center;
+        -ms-flex-align: center;
         align-items: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
         flex-direction: column;
     }
     .deco--title {
@@ -471,18 +529,21 @@ a:focus {
 
 @media screen and (max-width: 40em) {
     .content--layout {
+        -webkit-transform: scale3d(0.8, 0.8, 1);
         transform: scale3d(0.8, 0.8, 1);
     }
 }
 
 @media screen and (max-width: 36em) {
     .content--layout {
+        -webkit-transform: scale3d(0.7, 0.7, 1);
         transform: scale3d(0.7, 0.7, 1);
     }
 }
 
 @media screen and (max-width: 32em) {
     .content--layout {
+        -webkit-transform: scale3d(0.6, 0.6, 1);
         transform: scale3d(0.6, 0.6, 1);
     }
     .content__author,
@@ -494,6 +555,7 @@ a:focus {
 
 @media screen and (max-width: 28em) {
     .content--layout {
+        -webkit-transform: scale3d(0.5, 0.5, 1);
         transform: scale3d(0.5, 0.5, 1);
     }
 }
